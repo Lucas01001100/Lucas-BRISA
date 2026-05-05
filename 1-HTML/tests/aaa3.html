@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Recuperar senha</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+}
+
+/* Lado esquerdo */
+.left {
+    width: 40%;
+    background-color: #0a8f4c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.left h1 {
+    text-align: center;
+}
+
+/* Lado direito */
+.right {
+    width: 60%;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 400px;
+}
+
+.box h2 {
+    margin-bottom: 10px;
+}
+
+.box p {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background-color: #ddd;
+}
+
+button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: #0a8f4c;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #087a41;
+}
+
+/* link voltar */
+.back {
+    margin-top: 15px;
+    display: inline-block;
+    font-size: 14px;
+    color: #0a8f4c;
+    text-decoration: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="left">
+    <div class="logo">Unimed Litoral Sul/RS</div>
+    <h1>Agenda VivaUnimed<br>Sistema de Fila Inteligente</h1>
+</div>
+
+<div class="right">
+    <div class="box">
+        <h2>Bem-vindo</h2>
+        <p>Acesse o Painel Administrativo para gerenciar sua agenda.</p>
+
+        <label>E-mail Corporativo</label>
+        <input type="email">
+
+        <button>Recuperar senha</button>
+
+        <a href="index.html" class="back">← Voltar para login</a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>VivaUnimed</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: #f5f6f8;
+}
+
+/* ===== SCREENS ===== */
+.screen {
+    display: none;
+    width: 100%;
+    height: 100vh;
+}
+.screen.active {
+    display: flex;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    width: 260px;
+    background: #0a8f4c;
+    color: white;
+    padding: 30px 20px;
+}
+
+.logo {
+    border: 2px solid white;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.menu-item {
+    margin: 18px 0;
+    opacity: 0.9;
+    cursor: pointer;
+}
+.menu-item:hover {
+    opacity: 1;
+}
+
+/* ===== MAIN ===== */
+.main {
+    flex: 1;
+    padding: 30px;
+}
+
+/* ===== CARDS ===== */
+.card {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 300px;
+    gap: 20px;
+}
+
+/* ===== DASHBOARD ===== */
+.metric {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.badge {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    background: #eee;
+}
+
+.alert {
+    background: #7a1f00;
+    color: white;
+}
+
+.insight {
+    background: #0d2c4f;
+    color: white;
+}
+
+/* ===== AGENDA ===== */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.day {
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    height: 80px;
+    font-size: 14px;
+}
+
+.day.active {
+    border: 2px solid #0a8f4c;
+}
+
+/* ===== LISTA ===== */
+.side-list {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.appointment {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.confirmed { background: #e6f4ec; }
+.noshow { background: #fdecea; }
+.pending { background: #fff4e5; }
+.done { background: #e8f0fe; }
+
+/* ===== LOGIN ===== */
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.left {
+    width: 40%;
+    background: #0a8f4c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.right {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 400px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #ddd;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: none;
+    background: #0a8f4c;
+    color: white;
+    cursor: pointer;
+}
+
+.link {
+    margin-top: 10px;
+    color: #0a8f4c;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="login" class="screen active">
+    <div class="container">
+        <div class="left">
+            <div class="logo">Unimed</div>
+            <h2>Agenda VivaUnimed</h2>
+        </div>
+
+        <div class="right">
+            <div class="box">
+                <h2>Bem-vindo</h2>
+                <input placeholder="E-mail">
+                <input placeholder="Senha" type="password">
+                <div class="link" onclick="go('recuperar')">Esqueci a senha</div>
+                <button onclick="go('dashboard')">Entrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="screen">
+    <div class="sidebar">
+        <div class="logo">Unimed</div>
+        <div class="menu-item" onclick="go('dashboard')">Dashboard</div>
+        <div class="menu-item" onclick="go('agenda')">Agenda</div>
+        <div class="menu-item">Cadastro Profissionais</div>
+        <div class="menu-item">Cadastro No-show</div>
+    </div>
+
+    <div class="main">
+        <h1>Visão Geral Operacional</h1>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="badge">Taxa de No-show</div>
+                <div class="metric">26.4%</div>
+            </div>
+
+            <div class="card">
+                <div class="badge">Taxa de Ocupação</div>
+                <div class="metric">82.1%</div>
+            </div>
+
+            <div class="card">
+                <h3>Frequência por Dia</h3>
+                <p>SEG — 88%</p>
+                <p>TER — 82%</p>
+                <p>QUA — 75%</p>
+                <p>QUI — 62%</p>
+                <p>SEX — 90%</p>
+            </div>
+
+        </div>
+
+        <div class="card alert">
+            Alerta crítico: No-show alto
+        </div>
+
+        <div class="card insight">
+            Insight: novos clientes faltam mais
+        </div>
+    </div>
+</div>
+
+<!-- AGENDA -->
+<div id="agenda" class="screen">
+    <div class="sidebar">
+        <div class="logo">Unimed</div>
+        <div class="menu-item" onclick="go('dashboard')">Dashboard</div>
+        <div class="menu-item">Agenda</div>
+        <div class="menu-item">Cadastro Profissionais</div>
+        <div class="menu-item">Cadastro No-show</div>
+    </div>
+
+    <div class="main">
+
+        <h1>Agenda de Consultas</h1>
+        <h2 style="color:#0a8f4c;margin-bottom:20px;">Outubro 2026</h2>
+
+        <div class="grid">
+
+            <!-- CALENDÁRIO -->
+            <div class="card">
+                <div class="calendar">
+                    <div class="day">01</div>
+                    <div class="day">02</div>
+                    <div class="day">03</div>
+                    <div class="day">04</div>
+                    <div class="day">05</div>
+                    <div class="day">06</div>
+                    <div class="day">07</div>
+                    <div class="day">08</div>
+                    <div class="day active">09</div>
+                    <div class="day">10</div>
+                    <div class="day">11</div>
+                </div>
+            </div>
+
+            <!-- ESPAÇO -->
+            <div></div>
+
+            <!-- LISTA -->
+            <div class="side-list">
+                <h3>Segunda, 09 Out</h3>
+
+                <div class="appointment confirmed">
+                    08:00 - Confirmada
+                </div>
+
+                <div class="appointment noshow">
+                    09:15 - No-show
+                </div>
+
+                <div class="appointment pending">
+                    10:30 - Pendente
+                </div>
+
+                <div class="appointment done">
+                    11:45 - Realizada
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- RECUPERAR -->
+<div id="recuperar" class="screen">
+    <div class="container">
+        <div class="left">
+            <div class="logo">Unimed</div>
+        </div>
+
+        <div class="right">
+            <div class="box">
+                <h2>Recuperar senha</h2>
+                <input placeholder="E-mail">
+                <button>Recuperar senha</button>
+                <div class="link" onclick="go('login')">← Voltar</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function go(id) {
+    document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>VivaUnimed</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* telas */
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* LOGIN / RECUPERAR */
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.left {
+    width: 40%;
+    background-color: #0a8f4c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.right {
+    width: 60%;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 400px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: none;
+    background-color: #ddd;
+}
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: #0a8f4c;
+    color: white;
+    cursor: pointer;
+}
+
+.link {
+    margin-top: 10px;
+    color: #0a8f4c;
+    cursor: pointer;
+}
+
+/* DASHBOARD */
+.dashboard {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #0a8f4c;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+}
+
+.menu-item {
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+.main {
+    flex: 1;
+    background-color: #f5f5f5;
+    padding: 30px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.alert {
+    background: #7a1f00;
+    color: white;
+}
+
+.insight {
+    background: #0d2c4f;
+    color: white;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen" class="screen active">
+    <div class="container">
+
+        <div class="left">
+            <div class="logo">Unimed</div>
+            <h2>Agenda VivaUnimed</h2>
+        </div>
+
+        <div class="right">
+            <div class="box">
+                <h2>Bem-vindo</h2>
+
+                <input placeholder="E-mail">
+                <input type="password" placeholder="Senha">
+
+                <div class="link" onclick="goToRecuperar()">Esqueci a senha</div>
+
+                <button onclick="login()">Entrar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- RECUPERAR -->
+<div id="recuperarScreen" class="screen">
+    <div class="container">
+
+        <div class="left">
+            <div class="logo">Unimed</div>
+        </div>
+
+        <div class="right">
+            <div class="box">
+                <h2>Recuperar senha</h2>
+
+                <input placeholder="E-mail">
+
+                <button>Recuperar</button>
+
+                <div class="link" onclick="goToLogin()">← Voltar</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboardScreen" class="screen">
+    <div class="dashboard">
+
+        <div class="sidebar">
+            <h2>Unimed</h2>
+
+            <div class="menu-item">Dashboard</div>
+            <div class="menu-item">Agenda</div>
+            <div class="menu-item">Cadastro Profissionais</div>
+            <div class="menu-item">Cadastro No-show</div>
+        </div>
+
+        <div class="main">
+            <h1>Visão Geral Operacional</h1>
+
+            <div class="card">
+                <h3>Taxa de No-show</h3>
+                <h1>26.4%</h1>
+            </div>
+
+            <div class="card">
+                <h3>Taxa de Ocupação</h3>
+                <h1>82.1%</h1>
+            </div>
+
+            <div class="card alert">
+                <h3>⚠ Alerta Crítico</h3>
+                <p>No-show acima do limite</p>
+            </div>
+
+            <div class="card insight">
+                <h3>Insight Estratégico</h3>
+                <p>Clientes novos faltam mais</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="agendaScreen" class="screen">
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Unimed</h2>
+
+            <div class="menu-item" onclick="voltarDashboard()">Dashboard</div>
+            <div class="menu-item" onclick="irParaAgenda()">Agenda</div>
+            <div class="menu-item">Cadastro Profissionais</div>
+            <div class="menu-item">Cadastro No-show</div>
+        </div>
+
+        <!-- Conteúdo -->
+        <div class="main">
+
+            <h1>Agenda de Consultas</h1>
+            <h2 style="margin-top: 20px;">Outubro 2026</h2>
+
+            <!-- Calendário fake -->
+            <div class="card">
+                <p>[ Calendário aqui ]</p>
+            </div>
+
+            <!-- Lista do dia -->
+            <div class="card">
+                <h3>Segunda, 09 Out</h3>
+
+                <p>08:00 - Ana Julia Mendes (Confirmada)</p>
+                <p>09:15 - Ricardo Oliveira (No-show)</p>
+                <p>10:30 - Carlos Eduardo (Pendente)</p>
+                <p>11:45 - Mateus Ferraz (Realizada)</p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+function login() {
+    trocarTela("loginScreen", "dashboardScreen");
+}
+
+function goToRecuperar() {
+    trocarTela("loginScreen", "recuperarScreen");
+}
+
+function goToLogin() {
+    trocarTela("recuperarScreen", "loginScreen");
+}
+
+function trocarTela(atual, destino) {
+    document.getElementById(atual).classList.remove("active");
+    document.getElementById(destino).classList.add("active");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Perguntas de Astronomia</title>
+        <style>
+            :root {
+                color-scheme: dark;
+                font-family: Arial, Helvetica, sans-serif;
+                background: #07111f;
+                color: #f4f7fb;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                min-height: 100vh;
+                background:
+                    radial-gradient(circle at top left, rgba(64, 158, 255, 0.24), transparent 34rem),
+                    linear-gradient(135deg, #07111f 0%, #101c2b 52%, #081018 100%);
+            }
+
+            main {
+                width: min(960px, calc(100% - 32px));
+                margin: 0 auto;
+                padding: 48px 0;
+            }
+
+            header {
+                margin-bottom: 28px;
+            }
+
+            h1 {
+                margin: 0 0 10px;
+                font-size: clamp(2rem, 6vw, 4rem);
+                line-height: 1;
+            }
+
+            p {
+                margin: 0;
+                color: #c8d3df;
+                font-size: 1.05rem;
+            }
+
+            .qa-list {
+                display: grid;
+                gap: 16px;
+            }
+
+            .qa-card {
+                border: 1px solid rgba(255, 255, 255, 0.14);
+                border-radius: 8px;
+                background: rgba(255, 255, 255, 0.07);
+                padding: 20px;
+                box-shadow: 0 16px 42px rgba(0, 0, 0, 0.22);
+            }
+
+            .question {
+                margin: 0 0 10px;
+                color: #ffffff;
+                font-size: 1.15rem;
+                font-weight: 700;
+            }
+
+            .answer {
+                margin: 14px 0 0;
+                color: #dce6ef;
+                line-height: 1.5;
+            }
+
+            .answer strong {
+                color: #8bd7ff;
+            }
+
+            .options {
+                display: grid;
+                gap: 10px;
+                margin-top: 14px;
+            }
+
+            label {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                min-height: 44px;
+                padding: 10px 12px;
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 8px;
+                background: rgba(255, 255, 255, 0.05);
+                color: #edf4fb;
+                cursor: pointer;
+            }
+
+            input[type="radio"] {
+                width: 18px;
+                height: 18px;
+                accent-color: #55c8ff;
+            }
+
+            button {
+                margin-top: 14px;
+                border: 0;
+                border-radius: 8px;
+                background: #55c8ff;
+                color: #06101b;
+                cursor: pointer;
+                font-size: 0.95rem;
+                font-weight: 700;
+                padding: 10px 16px;
+            }
+
+            button:hover {
+                background: #8bd7ff;
+            }
+
+            .feedback {
+                min-height: 24px;
+                margin-top: 12px;
+                font-weight: 700;
+            }
+
+            .feedback.correct {
+                color: #8dffbd;
+            }
+
+            .feedback.wrong {
+                color: #ffb38d;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <header>
+                <h1>Perguntas de Astronomia</h1>
+                <p>Respostas curtas e diretas para revisar conceitos essenciais do universo.</p>
+            </header>
+
+            <section class="qa-list" aria-label="Quiz de astronomia">
+                <article class="qa-card" data-answer="sol">
+                    <h2 class="question">1. Qual é a estrela mais próxima da Terra?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="lua">Lua</label>
+                        <label><input type="radio" name="q1" value="sol">Sol</label>
+                        <label><input type="radio" name="q1" value="sirius">Sirius</label>
+                        <label><input type="radio" name="q1" value="vega">Vega</label>
+                        <label><input type="radio" name="q1" value="proxima">Próxima Centauri</label>
+                    </div>
+                    <button type="button">Conferir</button>
+                    <p class="feedback" aria-live="polite"></p>
+                    <p class="answer"><strong>Resposta:</strong> O Sol.</p>
+                </article>
+
+                <article class="qa-card" data-answer="marte">
+                    <h2 class="question">2. Qual planeta é conhecido como Planeta Vermelho?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="venus">Vênus</label>
+                        <label><input type="radio" name="q2" value="marte">Marte</label>
+                        <label><input type="radio" name="q2" value="saturno">Saturno</label>
+                        <label><input type="radio" name="q2" value="netuno">Netuno</label>
+                        <label><input type="radio" name="q2" value="mercurio">Mercúrio</label>
+                    </div>
+                    <button type="button">Conferir</button>
+                    <p class="feedback" aria-live="polite"></p>
+                    <p class="answer"><strong>Resposta:</strong> Marte.</p>
+                </article>
+
+                <article class="qa-card" data-answer="galaxia">
+                    <h2 class="question">3. O que é uma galáxia?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="planeta">Um planeta gigante</label>
+                        <label><input type="radio" name="q3" value="cometa">Um cometa congelado</label>
+                        <label><input type="radio" name="q3" value="galaxia">Um conjunto de estrelas</label>
+                        <label><input type="radio" name="q3" value="meteoro">Um meteoro brilhante</label>
+                        <label><input type="radio" name="q3" value="lua">Uma lua distante</label>
+                    </div>
+                    <button type="button">Conferir</button>
+                    <p class="feedback" aria-live="polite"></p>
+                    <p class="answer"><strong>Resposta:</strong> Um conjunto enorme de estrelas, gás, poeira e matéria escura.</p>
+                </article>
+
+                <article class="qa-card" data-answer="jupiter">
+                    <h2 class="question">4. Qual é o maior planeta do Sistema Solar?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="terra">Terra</label>
+                        <label><input type="radio" name="q4" value="urano">Urano</label>
+                        <label><input type="radio" name="q4" value="jupiter">Júpiter</label>
+                        <label><input type="radio" name="q4" value="marte">Marte</label>
+                        <label><input type="radio" name="q4" value="saturno">Saturno</label>
+                    </div>
+                    <button type="button">Conferir</button>
+                    <p class="feedback" aria-live="polite"></p>
+                    <p class="answer"><strong>Resposta:</strong> Júpiter.</p>
+                </article>
+
+                <article class="qa-card" data-answer="posicao">
+                    <h2 class="question">5. O que causa as fases da Lua?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="nuvens">Nuvens na atmosfera</label>
+                        <label><input type="radio" name="q5" value="sombra">Sombra de Marte</label>
+                        <label><input type="radio" name="q5" value="posicao">Posição Lua-Terra-Sol</label>
+                        <label><input type="radio" name="q5" value="vento">Vento solar fraco</label>
+                        <label><input type="radio" name="q5" value="rotacao">Rotação de Júpiter</label>
+                    </div>
+                    <button type="button">Conferir</button>
+                    <p class="feedback" aria-live="polite"></p>
+                    <p class="answer"><strong>Resposta:</strong> A posição da Lua em relação à Terra e ao Sol.</p>
+                </article>
+
+                <article class="qa-card" data-answer="distancia">
+                    <h2 class="question">6. O que é um ano-luz?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="tempo">Um período de um ano</label>
+                        <label><input type="radio" name="q6" value="estrela">Um tipo de estrela</label>
+                        <label><input type="radio" name="q6" value="energia">Uma fonte de energia</label>
+                        <label><input type="radio" name="q6" value="distancia">Uma medida de distância</label>
+                        <label><input type="radio" name="q6" value="orbita">Uma órbita lunar</label>
+                    </div>
+                    <button type="button">Conferir</button>
+                    <p class="feedback" aria-live="polite"></p>
+                    <p class="answer"><strong>Resposta:</strong> A distância que a luz percorre em um ano.</p>
+                </article>
+            </section>
+        </main>
+
+        <script>
+            const cards = document.querySelectorAll(".qa-card");
+
+            cards.forEach((card) => {
+                const button = card.querySelector("button");
+                const feedback = card.querySelector(".feedback");
+
+                button.addEventListener("click", () => {
+                    const selected = card.querySelector("input[type='radio']:checked");
+
+                    feedback.className = "feedback";
+
+                    if (!selected) {
+                        feedback.textContent = "Escolha uma opção.";
+                        feedback.classList.add("wrong");
+                        return;
+                    }
+
+                    if (selected.value === card.dataset.answer) {
+                        feedback.textContent = "Correto!";
+                        feedback.classList.add("correct");
+                    } else {
+                        feedback.textContent = "Incorreto. Veja a resposta abaixo.";
+                        feedback.classList.add("wrong");
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
